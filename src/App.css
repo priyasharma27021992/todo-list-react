@@ -1,0 +1,60 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+main button{
+    background: black;
+    color: white;
+    margin: 0 2px;
+}
+
+fieldset{
+  padding: 2px;
+}
+
+main{
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 16px;
+}
+
+main ul{
+  list-style: none;
+  padding-left: 2px;
+}
+
+main ul li{
+  display: flex;
+  margin-top: 10px;
+}
+
+main ul li input{
+ padding: 10px;
+}
+
+.add-task{
+  display: flex;
+}
+
+.add-task fieldset{
+    width: 100%;
+}
+
+.add-task input{
+  flex-grow: 2;
+  width: 100%;
+}
+
+.task-content{
+  display: flex;
+}
+
+.task-text{
+   width: 300px;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+}
