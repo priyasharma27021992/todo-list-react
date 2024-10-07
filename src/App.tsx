@@ -14,7 +14,7 @@ let nextId = 3;
 
 function App() {
   const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
-  const handleAddTask = (text) => {
+  const handleAddTask = (text: string) => {
     dispatch({ type: "added", id: nextId++, text: text });
   };
   const handleChangeTask = (task) => {
