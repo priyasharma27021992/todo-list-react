@@ -3,6 +3,8 @@ import "./App.css";
 import { AddTask } from "./components/AddTask";
 import { tasksReducer } from "./reducers/tasksReducer";
 import { TaskList } from "./components/TaskList";
+import { Action, TaskType } from "./utils/types";
+import { ActionTypes } from "./utils/actionTypes";
 
 const initialTasks = [
   { id: 0, text: "Complete Leetcode tree task", done: true },
@@ -13,15 +15,35 @@ const initialTasks = [
 let nextId = 3;
 
 function App() {
-  const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
+  const [tasks, dispatch] = useReducer<
+    (state: TaskType[], actions: Action) => Array<TaskType>
+  >(tasksReducer, initialTasks as Array<TaskType>);
   const handleAddTask = (text: string) => {
-    dispatch({ type: "added", id: nextId++, text: text });
+    dispatch({
+      type: ActionTypes.TASK_ADDED,
+      payload: {
+        task: {
+          id: nextId++,
+          text: text,
+        },
+      },
+    });
   };
-  const handleChangeTask = (task) => {
-    dispatch({ type: "changed", task: task });
+  const handleChangeTask = (task: TaskType) => {
+    dispatch({
+      type: ActionTypes.TASK_CHANGED,
+      payload: {
+        task: task,
+      },
+    });
   };
-  const handleDeleteTask = (taskId) => {
-    dispatch({ type: "deleted", id: taskId });
+  const handleDeleteTask = (taskId: number) => {
+    dispatch({
+      type: ActionTypes.TASK_DELETED,
+      payload: {
+        id: taskId,
+      },
+    });
   };
   return (
     <>

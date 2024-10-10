@@ -1,30 +1,31 @@
-export function tasksReducer(tasks, action) {
-  console.log("baby", action, tasks);
+import { ActionTypes } from "../utils/actionTypes";
+import { Action, TaskType } from "../utils/types";
+
+export function tasksReducer(tasks: Array<TaskType>, action: Action) {
   switch (action.type) {
-    case "added": {
+    case ActionTypes.TASK_ADDED: {
       return [
         ...tasks,
         {
-          id: action.id,
-          text: action.text,
+          id: action.payload.task.id,
+          text: action.payload.task.text,
           done: false,
         },
       ];
     }
-    case "changed": {
+    case ActionTypes.TASK_CHANGED: {
       return tasks.map((task) => {
-        console.log("baby", task, action.task);
-        if (task?.id === action?.task?.id) {
-          return action?.task;
+        if (task?.id === action?.payload?.task?.id) {
+          return action?.payload.task;
         }
         return task;
       });
     }
-    case "deleted": {
-      return tasks.filter((task) => task.id !== action.id);
+    case ActionTypes.TASK_DELETED: {
+      return tasks.filter((task: TaskType) => task.id !== action.payload.id);
     }
     default: {
-      throw Error("Unknown action: " + action.type);
+      throw Error("Unknown action: " + action);
     }
   }
 }

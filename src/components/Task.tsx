@@ -1,6 +1,13 @@
 import { useState } from "react";
+import { TaskType } from "../utils/types";
 
-export const Task = ({ task, onChange, onDelete }) => {
+type TaskProps = {
+  task: TaskType;
+  onChange: (task: TaskType) => void;
+  onDelete: (taskId: number) => void;
+};
+
+export const Task = ({ task, onChange, onDelete }: TaskProps) => {
   const [isEditing, setIsEditing] = useState(false);
   console.log("task", task);
 

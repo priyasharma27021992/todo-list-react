@@ -1,6 +1,17 @@
+import { TaskType } from "../utils/types";
 import { Task } from "./Task";
 
-export const TaskList = ({ tasks, onChangeTask, onDeleteTask }) => {
+type TaskListProps = {
+  tasks: Array<TaskType>;
+  onChangeTask: (task: TaskType) => void;
+  onDeleteTask: (taskId: number) => void;
+};
+
+export const TaskList = ({
+  tasks,
+  onChangeTask,
+  onDeleteTask,
+}: TaskListProps) => {
   return (
     <ul>
       {tasks.map((task) => (

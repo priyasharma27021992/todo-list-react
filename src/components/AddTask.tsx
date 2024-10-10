@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-export const AddTask = ({ onAddTask }) => {
+export const AddTask = ({
+  onAddTask,
+}: {
+  onAddTask: (text: string) => void;
+}) => {
   const [text, setText] = useState("");
   return (
     <div className="add-task">
