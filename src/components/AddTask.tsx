@@ -15,6 +15,7 @@ export const AddTask = ({
         name="task-input"
         id="task-input"
         value={text}
+        autoFocus
         onChange={(e) => setText(e.target.value)}
       />
       <button

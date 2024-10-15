@@ -9,7 +9,6 @@ type TaskProps = {
 
 export const Task = ({ task, onChange, onDelete }: TaskProps) => {
   const [isEditing, setIsEditing] = useState(false);
-  console.log("task", task);
 
   let taskContent;
   if (isEditing) {
@@ -23,7 +22,7 @@ export const Task = ({ task, onChange, onDelete }: TaskProps) => {
             type="text"
             className="task-text"
             name="taskDescription"
-            value={task.text}
+            autoFocus
             onChange={(e) => onChange({ ...task, text: e.target.value })}
           />
         </fieldset>
