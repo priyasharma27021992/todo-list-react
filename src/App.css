@@ -67,4 +67,7 @@ main ul li input{
   .task-text{
      width: 150px;
   }
+  main{
+    max-width: 100%;
+  }
 }
