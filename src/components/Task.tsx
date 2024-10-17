@@ -23,6 +23,7 @@ export const Task = ({ task, onChange, onDelete }: TaskProps) => {
             className="task-text"
             name="taskDescription"
             autoFocus
+            value={task.text}
             onChange={(e) => onChange({ ...task, text: e.target.value })}
           />
         </fieldset>
