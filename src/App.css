@@ -9,10 +9,12 @@ main button{
     background: black;
     color: white;
     margin: 0 2px;
+    width: 100px;
 }
 
 fieldset{
-  padding: 2px;
+ border: 0;
+ padding: 0
 }
 
 main{
@@ -31,6 +33,7 @@ main ul{
 main ul li{
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
   margin-top: 10px;
 }
 
@@ -61,6 +64,15 @@ main ul li input{
     display: flex;
     overflow: hidden;
     align-items: center;
+}
+
+.task-input{
+  display: flex;
+  align-items: flex-start;
+}
+
+.task-input input[type="checkbox"]{
+  margin-top: 7px;
 }
 
 @media only screen and (max-width: 600px) {
